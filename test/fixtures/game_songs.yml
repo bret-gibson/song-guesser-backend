@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  GameSession: one
+  Song: one
+  correct_guess: false
+
+two:
+  GameSession: two
+  Song: two
+  correct_guess: false
