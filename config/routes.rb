@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'songs/dummy_songs', to: 'songs#dummy_songs'
+  get 'songs/answer_songs', to: 'songs#answer_songs'
+
 
   resources :game_songs
   resources :songs

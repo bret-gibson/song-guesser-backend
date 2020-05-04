@@ -14,4 +14,8 @@ class SongsController < ApplicationController
         dummy_songs = Song.where(dummy: true)
         render json: SongSerializer.new(dummy_songs)
     end
+    def answer_songs
+        usable_songs = Song.where(dummy: false)
+        render json: SongSerializer.new(usable_songs)
+    end
 end
