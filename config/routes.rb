@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'songs/dummy_songs', to: 'songs#dummy_songs'
+
   resources :game_songs
   resources :songs
   resources :game_sessions
