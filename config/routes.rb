@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'songs/dummy_songs', to: 'songs#dummy_songs'
   get 'songs/answer_songs', to: 'songs#answer_songs'
-
+  post '/game_sessions', to: 'game_sessions#create'
 
   resources :game_songs
   resources :songs

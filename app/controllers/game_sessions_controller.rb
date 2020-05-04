@@ -7,6 +7,12 @@ class GameSessionsController < ApplicationController
 
     def show
         game_session = GameSession.find(params[:id])
-        render json: GameSongSerializer.new(game_session)
+        render json: GameSessionSerializer.new(game_session)
+    end
+
+    def create
+        game_session = GameSession.create()
+        # render json: GameSessionSerializer.new(game_session)
     end
 end
+
