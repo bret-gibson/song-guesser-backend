@@ -12,7 +12,19 @@ class GameSessionsController < ApplicationController
 
     def create
         game_session = GameSession.create()
+
         # render json: GameSessionSerializer.new(game_session)
     end
+
+    def last
+        last = GameSession.last
+        render json: GameSessionSerializer.new(last)
+    end
+
+
+    # def updateLast
+    #     last = GameSession.last
+    #     render json: GameSessionSerializer.new(last)
+    # end
 end
 

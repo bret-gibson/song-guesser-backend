@@ -9,4 +9,9 @@ class GameSongsController < ApplicationController
         render json: GameSongSerializer.new(game_song)
     end
 
+    def create
+        byebug
+        game_song = GameSong.create(game_session: game1, song: song1, correct_guess: false)
+    end
+
 end
