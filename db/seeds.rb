@@ -1,15 +1,9 @@
-        # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+require 'json'
 
-Song.destroy_all
-GameSession.destroy_all
-GameSong.destroy_all
-
+# Song.delete_all
+# GameSession.delete_all
+# GameSong.delete_all
 
 song1 = Song.create(title: 'Circles', artist: 'Post Malone', genre: 'Pop', source: 'https://cdns-preview-d.dzcdn.net/stream/c-df36f056f3f9770ab7b7b466e32975fd-5.mp3', dummy: false)
 song2 = Song.create(title: 'Say So', artist: 'Doja Cat', genre: 'Pop', source: 'https://cdns-preview-7.dzcdn.net/stream/c-7bc96d31b485a05a8867d0f957ff8649-3.mp3', dummy: false)
@@ -34,3 +28,76 @@ gamesong1 = GameSong.create(game_session: game1, song: song1, correct_guess: fal
 gamesong2 = GameSong.create(game_session: game2, song: song2, correct_guess: false)
 gamesong3 = GameSong.create(game_session: game3, song: song3, correct_guess: false)
 gamesong4 = GameSong.create(game_session: game4, song: song4, correct_guess: false)
+
+url = 'https://api.deezer.com/playlist/6529042504'
+response = RestClient.get(url)
+json = JSON.parse(response)
+
+trackArr = json["tracks"]["data"]
+
+64.times do |i|
+    if i > 32 || trackArr[i]["preview"] == ""
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "2000s",
+            source: trackArr[i]["preview"],
+            dummy: true)
+    else
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "2000s",
+            source: trackArr[i]["preview"],
+            dummy: false)
+    end
+end
+
+url = 'https://api.deezer.com/playlist/878989033'
+response = RestClient.get(url)
+json = JSON.parse(response)
+
+trackArr = json["tracks"]["data"]
+
+79.times do |i|
+    if i > 40 || trackArr[i]["preview"] == ""
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "1990s",
+            source: trackArr[i]["preview"],
+            dummy: true)
+    else
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "1990s",
+            source: trackArr[i]["preview"],
+            dummy: false)
+    end
+end
+
+url = 'https://api.deezer.com/playlist/1890851822'
+response = RestClient.get(url)
+json = JSON.parse(response)
+
+trackArr = json["tracks"]["data"]
+
+109.times do |i|
+    if i > 55 || trackArr[i]["preview"] == ""
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "2010s",
+            source: trackArr[i]["preview"],
+            dummy: true)
+    else
+        Song.create(
+            title: trackArr[i]["title"],
+            artist: trackArr[i]["artist"]["name"],
+            genre: "2010s",
+            source: trackArr[i]["preview"],
+            dummy: false)
+    end
+end
+

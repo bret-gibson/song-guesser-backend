@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'songs/answer_songs', to: 'songs#answer_songs'
   post '/game_sessions', to: 'game_sessions#create'
   get 'game_sessions/last', to: 'game_sessions#last'
-  # patch 'game_sessions/last', to: 'game_sessions#last'
+  get 'game_songs/last', to: 'game_songs#last'
+  # patch 'game_songs/last', to: 'game_songs#last'
   post '/game_songs', to: 'game_songs#create'
 
   resources :game_songs
