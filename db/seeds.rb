@@ -5,6 +5,9 @@ require 'json'
 # GameSession.delete_all
 # GameSong.delete_all
 
+user1 = User.create(username: "mary")
+user2 = User.create(username: "bret")
+
 song1 = Song.create(title: 'Circles', artist: 'Post Malone', genre: 'Pop', source: 'https://cdns-preview-d.dzcdn.net/stream/c-df36f056f3f9770ab7b7b466e32975fd-5.mp3', dummy: false)
 song2 = Song.create(title: 'Say So', artist: 'Doja Cat', genre: 'Pop', source: 'https://cdns-preview-7.dzcdn.net/stream/c-7bc96d31b485a05a8867d0f957ff8649-3.mp3', dummy: false)
 song3 = Song.create(title: 'Blinding Light', artist: 'The Weeknd', genre: 'Electro-wave', source: 'https://cdns-preview-0.dzcdn.net/stream/c-0cb3c26f5c0be8b37d90560955431118-4.mp3', dummy: false)
@@ -18,10 +21,10 @@ song9 = Song.create(title: "Do I Wanna Know?", artist: "Arctic Monkeys", genre: 
 song10 = Song.create(title: "Toosie Slide", artist:"Drake" , genre: "Hip-Hop", source: "", dummy: true)
 
 
-game1 = GameSession.create()
-game2 = GameSession.create()
-game3 = GameSession.create()
-game4 = GameSession.create()
+game1 = GameSession.create(user: user1)
+game2 = GameSession.create(user: user2)
+game3 = GameSession.create(user: user2)
+game4 = GameSession.create(user: user1)
 
 
 gamesong1 = GameSong.create(game_session: game1, song: song1, correct_guess: false)
