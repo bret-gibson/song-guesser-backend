@@ -10,8 +10,8 @@ class GameSongsController < ApplicationController
     end
 
     def create
-        byebug
-        game_song = GameSong.create(game_session: game1, song: song1, correct_guess: false)
+        # byebug
+        game_song = GameSong.create(game_session_id: params[:game_session_id], song_id: params[:song_id], correct_guess: params[:correct_guess])
     end
 
 end
