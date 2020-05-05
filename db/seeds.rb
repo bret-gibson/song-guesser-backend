@@ -21,10 +21,12 @@ song9 = Song.create(title: "Do I Wanna Know?", artist: "Arctic Monkeys", genre: 
 song10 = Song.create(title: "Toosie Slide", artist:"Drake" , genre: "Hip-Hop", source: "", dummy: true)
 
 
-game1 = GameSession.create(user: user1)
-game2 = GameSession.create(user: user2)
-game3 = GameSession.create(user: user2)
-game4 = GameSession.create(user: user1)
+game1 = GameSession.create(points: 600, user: user1)
+game2 = GameSession.create(points: 300, user: user2)
+game3 = GameSession.create(points: 300, user: user2)
+game4 = GameSession.create(points: 0, user: user1)
+game5 = GameSession.create(points: 150, user: user1)
+game6 = GameSession.create(points: 250, user: user1)
 
 
 gamesong1 = GameSong.create(game_session: game1, song: song1, correct_guess: false)

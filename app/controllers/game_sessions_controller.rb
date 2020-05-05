@@ -22,9 +22,19 @@ class GameSessionsController < ApplicationController
     end
 
     def update
-        # byebug
         game_session = GameSession.find(params[:id])
         game_session.update(points: params["game_session"]["points"])
+    end
+
+
+    def top_scores
+        game_sessions = GameSession.all
+        sorted = game_sessions.sort_by{|key| key["points"]}.reverse
+        sorted = sorted.slice(0, 5)
+        render json: GameSessionSerializer.new(sorted)
+        # render json: sorted.as_json
+        # (only: [:id, :user_id, :names, :points])
+    
     end
 
     # def updateLast
