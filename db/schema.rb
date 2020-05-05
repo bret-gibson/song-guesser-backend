@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_152506) do
 
   create_table "game_sessions", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "points", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

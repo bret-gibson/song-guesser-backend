@@ -21,6 +21,11 @@ class GameSessionsController < ApplicationController
         render json: GameSessionSerializer.new(last)
     end
 
+    def update
+        # byebug
+        game_session = GameSession.find(params[:id])
+        game_session.update(points: params["game_session"]["points"])
+    end
 
     # def updateLast
     #     last = GameSession.last
