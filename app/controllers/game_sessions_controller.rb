@@ -11,9 +11,8 @@ class GameSessionsController < ApplicationController
     end
 
     def create
-        game_session = GameSession.create()
-
-        # render json: GameSessionSerializer.new(game_session)
+        game_session = GameSession.create(user_id: params["user_id"])
+        render json: GameSessionSerializer.new(game_session)
     end
 
     def last

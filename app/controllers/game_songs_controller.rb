@@ -11,6 +11,7 @@ class GameSongsController < ApplicationController
 
     def create
         game_song = GameSong.create(game_session_id: params[:game_session_id], song_id: params[:song_id], correct_guess: params[:correct_guess])
+        render json: GameSongSerializer.new(game_song)
     end
 
     def last
