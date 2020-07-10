@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_05_05_152506) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "game_sessions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "points", default: 0
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_152506) do
   end
 
   create_table "game_songs", force: :cascade do |t|
-    t.integer "game_session_id", null: false
-    t.integer "song_id", null: false
+    t.bigint "game_session_id", null: false
+    t.bigint "song_id", null: false
     t.boolean "correct_guess"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

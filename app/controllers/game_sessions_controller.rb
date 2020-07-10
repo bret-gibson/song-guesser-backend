@@ -35,7 +35,6 @@ class GameSessionsController < ApplicationController
         render json: GameSessionSerializer.new(top_five)
         # render json: sorted.as_json
         # (only: [:id, :user_id, :names, :points])
-    
     end
 
     # def updateLast
